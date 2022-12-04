@@ -3,7 +3,16 @@ type UserT = {
   username: string;
   auth: number[];
 };
-
+/* 
+  课程管理 - 2
+    课程操作 - 3
+      课程数据 - 4
+    添加课程 - 5
+  
+  学生管理 - 6
+    学生操作 - 7
+    添加学生 - 8
+*/
 const users: UserT[] = [
   {
     id: 1,
