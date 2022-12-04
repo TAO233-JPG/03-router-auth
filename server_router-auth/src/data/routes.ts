@@ -57,3 +57,8 @@ const routes: RouteT[] = [
     link: "/student/add",
   },
 ];
+
+export {
+  RouteT,
+  routes
+}
