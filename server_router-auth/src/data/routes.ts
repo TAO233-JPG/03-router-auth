@@ -17,10 +17,9 @@ const routes: RouteT[] = [
     title: "课程操作",
     link: '"/course/operate',
   },
-
   {
     id: 4,
-    pid: 0,
+    pid: 3,
     path: "info_data",
     name: "CourseInfoData",
     title: "课程数据",
