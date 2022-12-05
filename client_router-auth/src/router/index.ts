@@ -13,12 +13,12 @@ const router = createRouter({
     {
       path: "/:pathMatch(.*)*",
       name: "notFound",
-      component: import("@/views/NotFoundView.vue"),
+      component: () => import("@/views/NotFoundView.vue"),
     },
     {
       path: "/login",
       name: "Login",
-      component: import("@/views/LoginView.vue"),
+      component: () => import("@/views/LoginView.vue"),
     },
   ],
 });
@@ -28,17 +28,10 @@ router.beforeEach((to) => {
   if (to.path === "/login" || userStore.hasAuth) {
     return true;
   }
-  if (userStore.routeTree.length === 0) {
+  if (!userStore.hasAuth) {
     return {
       path: "/login",
     };
-  }
-  if (!userStore.hasAuth) {
-    const routes = generate_route(userStore.routeTree);
-    routes.forEach((route) => {
-      router.addRoute(route);
-    });
-    userStore.set_user_auth(true);
   }
 });
 export default router;
