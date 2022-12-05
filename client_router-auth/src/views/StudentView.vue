@@ -1,3 +1,4 @@
 <template>
-  <h2>Student View</h2>
+  <h1>Student View</h1>
+  <router-view></router-view>
 </template>
