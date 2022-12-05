@@ -15,7 +15,7 @@ const routes: RouteT[] = [
     path: "operate",
     name: "CourseOperate",
     title: "课程操作",
-    link: '"/course/operate',
+    link: "/course/operate",
   },
   {
     id: 4,
@@ -58,7 +58,4 @@ const routes: RouteT[] = [
   },
 ];
 
-export {
-  RouteT,
-  routes
-}
+export { RouteT, routes };
