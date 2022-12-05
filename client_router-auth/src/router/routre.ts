@@ -6,7 +6,7 @@ export const generate_route = (routeTree: RouteT[]): RouteRecordRaw[] => {
     const _route: RouteRecordRaw = {
       path: route.path,
       name: route.name,
-      component: () => import(`@/views${route.name}View.vue`),
+      component: () => import(`@/views/${route.name}View.vue`),
       children: [],
     };
 
