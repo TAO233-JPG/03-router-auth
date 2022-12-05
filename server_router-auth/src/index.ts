@@ -28,10 +28,12 @@ app.post("/login", (request, response) => {
     });
     response.status(200).send({
       data: authRouteList,
+      code: 1,
     });
   } else {
     response.status(200).send({
       data: "no user exist",
+      code: 0,
     });
   }
 });
