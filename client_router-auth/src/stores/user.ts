@@ -12,7 +12,7 @@ export const useUserStore = defineStore("user", () => {
   const set_username = (name: string) => {
     username.value = name;
   };
-  const set_route_list = async function () {
+  const set_route_tree = async function () {
     const lists = await login({ username: username.value });
     const _routeTree = format_route_tree(lists);
     routeTree = _routeTree;
@@ -26,7 +26,7 @@ export const useUserStore = defineStore("user", () => {
     username,
     hasAuth,
     routeTree,
-    set_route_list,
+    set_route_tree,
     set_user_auth,
     set_username,
   };
