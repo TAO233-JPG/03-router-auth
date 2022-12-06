@@ -1,17 +1,19 @@
 import axios from "axios";
+import { baseURL } from "./config";
+console.log(baseURL, "axios.ts");
 
-axios.create({
-  baseURL: "http://127.0.0.1:5173/",
+const axioInstance = axios.create({
+  baseURL: baseURL,
   timeout: 6 * 1000,
 });
 
-axios.interceptors.request.use((config) => {
+axioInstance.interceptors.request.use((config) => {
   console.log(`axios 请求拦截器`);
 
   return config;
 });
 
-axios.interceptors.response.use((response) => {
+axioInstance.interceptors.response.use((response) => {
   console.log(`axios 响应拦截器`);
 
   if (response.data.code === 1) {
@@ -21,4 +23,4 @@ axios.interceptors.response.use((response) => {
   return Promise.reject(response.data.data);
 });
 
-export default axios;
+export default axioInstance;
