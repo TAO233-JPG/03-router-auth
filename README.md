@@ -1,5 +1,8 @@
 # Vue3『路由权限』前后端全解析 练习
 
+> B站 小野森森
+> [Vue3『路由权限』前后端全解析](https://www.bilibili.com/video/BV1he4y1Y7gK/?spm_id_from=333.880.my_history.page.click&vd_source=60468f81b56de77a872ca50d7a5a9fe7)
+
 ## 客户端
 
 ### 主要功能
