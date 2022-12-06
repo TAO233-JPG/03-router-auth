@@ -22,6 +22,8 @@ const login_Handle = async () => {
       });
       userStore.set_user_auth(true);
       router.replace("/");
+
+      window.localStorage.setItem("username", username.value);
     } else {
       alert(`The user(${username.value}) has no access to the system`);
     }

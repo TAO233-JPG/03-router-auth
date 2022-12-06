@@ -23,12 +23,26 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to) => {
+router.beforeEach(async (to) => {
   const userStore = useUserStore();
   if (to.path === "/login" || userStore.hasAuth) {
     return true;
   }
   if (!userStore.hasAuth) {
+    const username = window.localStorage.getItem("username");
+    if (username) {
+      const userStore = useUserStore();
+      userStore.set_user_auth(true);
+      userStore.set_username(username);
+      await userStore.set_route_tree();
+      const routes = generate_route(userStore.routeTree);
+      if (routes.length) {
+        routes.forEach((route) => {
+          router.addRoute("home", route);
+        });
+        return { path: to.path };
+      }
+    }
     return {
       path: "/login",
     };
