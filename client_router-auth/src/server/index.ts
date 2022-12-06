@@ -1,5 +1,5 @@
 import type { RouteT } from "@/types/types";
-import axios from "./axios";
+import instance from "./axios";
 
 type LoginParamsT = {
   username: string;
@@ -7,6 +7,6 @@ type LoginParamsT = {
 
 // 登录并获取用户可以访问的路由
 export const login = async (data: LoginParamsT): Promise<RouteT[]> => {
-  const list = await axios.post<any, RouteT[]>("/api/login", data);
+  const list = await instance.post<any, RouteT[]>("/api/login", data);
   return list;
 };
