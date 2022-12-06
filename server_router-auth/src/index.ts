@@ -12,7 +12,13 @@ app.use(bodyParser.json());
 type LoginT = {
   username: string;
 };
-app.post("/login", (request, response) => {
+app.use((require, response, next) => {
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Headers", "*");
+  response.setHeader("Access-Control-Allow-Methods", "*");
+  next();
+});
+app.post("/api/login", (request, response) => {
   const { username }: LoginT = request.body;
   const user: UserT | undefined = users.find(
     (user) => user.username === username
